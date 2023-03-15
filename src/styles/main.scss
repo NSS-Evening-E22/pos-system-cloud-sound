@@ -8,3 +8,18 @@ body {
   text-align: center;
   margin-top: 100px;
 }
+
+#form-container {
+  width: 60%;
+  margin: auto;
+  justify-content: center;
+  color: black;
+
+  #formModal {
+    color: black;
+ }
+
+#order-card {
+  height: 325px;
+  width: 500px;
+}

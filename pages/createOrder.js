@@ -28,6 +28,6 @@ const createOrderPage = () => {
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>`;
   renderToDOM('#main-container', domString);
-}
+};
 
 export default createOrderPage;

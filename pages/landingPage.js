@@ -5,14 +5,15 @@ const landingPage = (user) => {
   const domString = `
         <div>
         <div id="text-style">
-        <h1 id="text-styles"> Welcome ${user.displayName}</h1>
-        <button type="button" class="btn btn-success btn-lg" id="view-order" style="width: 200px">View Orders</button>
+        <h1 class="word" data-animation="slide" id="text-styles"> Welcome ${user.displayName}</h1>
+        <br>
+        <button type="button" class="btn btn-success btn-lg btn-3" id="view-order" style="width: 200px">View Orders</button>
         <br>
         <br>
-        <button type="button" class="btn btn-success btn-lg" id="create-order" style="width: 200px">Create an Order</button>
+        <button type="button" class="btn btn-success btn-lg btn-3" id="create-order" style="width: 200px">Create an Order</button>
         <br>
         <br>
-        <button type="button" class="btn btn-success btn-lg" id="view-rev" style="width: 200px">View Revenue</button>
+        <button type="button" class="btn btn-success btn-lg btn-3" id="view-rev" style="width: 200px">View Revenue</button>
         </div>
         </div>
         `;

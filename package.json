@@ -1,5 +1,5 @@
 {
-  "name": "Hip Hop Pizza and Wangs",
+  "name": "hip-hop-pizza-and-wangs",
   "version": "1.0.0",
   "description": "",
   "main": "src/scripts/main.js",
@@ -9,7 +9,7 @@
     "build": "webpack --mode production"
   },
   "keywords": [],
-  "author": "Michael, Madds, Tori, Sheryl",
+  "author": "michael,madds,tori,sheryl,sean",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.2.0",

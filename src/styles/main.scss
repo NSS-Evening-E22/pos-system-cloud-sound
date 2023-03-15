@@ -22,17 +22,17 @@ body {
   height: 325px;
   width: 500px;
 }
-#text_styles {
-  font-family: 'copperplate';
+#welcome-title {
+  font-family: 'Brush Script MT';
   font-size: 5vw;
   margin: 0;
   padding-bottom: 0.5rem;
   letter-spacing: 0.5rem;
-  color: #03dac6;
+  color: #1a0bee;
   transition: all 0.3s ease;
   z-index: 3;
 }
-#text-styles:hover {
+#welcome-title:hover {
   transform: translate3d(0, -10px, 22px);
   color: #ff0266;
 }

@@ -2,7 +2,6 @@ import clearDom from '../../../../utils/clearDom';
 import renderToDom from '../../../../utils/renderToDom';
 
 const showOrders = (array) => {
-  console.warn(array);
   clearDom();
 
   let domString = '';

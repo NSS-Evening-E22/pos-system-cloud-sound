@@ -1,11 +1,17 @@
 import showOrders from '../components/shared/orderCards';
 import getOrders from '../../api/orderData';
+import landingPage from '../../../pages/landingPage';
+import domEvents from './domEvents';
 
-const navigationEvents = () => {
+const navigationEvents = (user) => {
   // VIEW ALL ORDERS
   document.querySelector('#all-orders').addEventListener('click', () => {
     getOrders().then(showOrders);
-    console.warn('CLICKED ALL ORDERS');
+  });
+  // Logo to landing page
+  document.querySelector('#title-logo').addEventListener('click', () => {
+    landingPage(user);
+    domEvents();
   });
 };
 

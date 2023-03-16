@@ -1,9 +1,12 @@
 import renderToDOM from '../../../../utils/renderToDom';
+import storeLogo from '../../../../instructions/Red Pizza Logo.png';
 
 const navBar = () => {
   const domString = `
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
     <div class="container-fluid">
+        <img src=${storeLogo} alt="store Logo" id="title-logo" style= "height:80px">
+        <br>
         <a class="navbar-brand title" id="title-logo" href="#">Hip-Hop Pizza and Wangs</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>

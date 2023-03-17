@@ -22,6 +22,28 @@ const getOrders = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// DELETE ORDER
+
+const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
+export { getOrders, deleteOrder };
+
 const createOrders = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders.json`, {
     method: 'POST',
@@ -49,3 +71,4 @@ const updateOrders = (payload) => new Promise((resolve, reject) => {
 });
 
 export { getOrders, createOrders, updateOrders };
+

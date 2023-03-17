@@ -1,6 +1,8 @@
+
+import { getOrders } from '../../api/orderData';
 import createOrderPage from '../../../pages/createOrder';
 import showOrders from '../components/shared/orderCards';
-import { getOrders } from '../../api/orderData';
+
 
 const domEvents = () => {
   document.querySelector('#view-order').addEventListener('click', () => {

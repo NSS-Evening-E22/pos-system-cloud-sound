@@ -6,6 +6,10 @@ body {
   background-color: gray;
   text-align: center;
   margin-top: 100px;
+  background-image: url('https://cdn.pixabay.com/photo/2020/03/25/21/05/pizza-4968645_1280.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 #form-container {
@@ -28,7 +32,7 @@ body {
   margin: 0;
   padding-bottom: 0.5rem;
   letter-spacing: 0.5rem;
-  color: #1a0bee;
+  color: white;
   transition: all 0.3s ease;
   z-index: 3;
 }
@@ -120,7 +124,9 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   width: 75rem;
   justify-content: center;
 }
-
+#store{
+  color: white;
+}
 .card {
 	border-radius: 8px;
 	color: rgb(0, 0, 0);

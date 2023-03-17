@@ -42,8 +42,6 @@ const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getOrders, deleteOrder };
-
 const createOrders = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders.json`, {
     method: 'POST',
@@ -70,5 +68,6 @@ const updateOrders = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getOrders, createOrders, updateOrders };
-
+export {
+  getOrders, createOrders, updateOrders, deleteOrder
+};

@@ -1,6 +1,6 @@
 import createOrderPage from '../../../pages/createOrder';
 import viewRevenue from '../../../pages/revenue';
-import getOrders from '../../api/orderData';
+import { getOrders } from '../../api/orderData';
 import showOrders from '../components/shared/orderCards';
 
 const landPageEvents = () => {

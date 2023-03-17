@@ -1,20 +1,22 @@
 import clearDom from '../../../../utils/clearDom';
 import renderToDOM from '../../../../utils/renderToDom';
 
-const addItemForm = () => {
+const addItem = (obj) => {
   clearDom();
   const domString = `
+<form id="${obj.firebaseKey ? `edit-item--${obj.firebaseKey}` : 'submit-card'}"
 <div class="mb-3">
   <label for="item" class="form-label">Add Item</label>
-  <input type="text" class="form-control" id="add-item">
+  <input type="text" class="form-control" id="add-item" value="${obj.item_name || ''}" required>
 </div>
 <div class="mb-3">
   <label for="price" class="form-label">Item Price</label>
-  <input type="text" class="form-control" id="item-price">
+  <input type="text" class="form-control" id="item-price" value="${obj.price || ''} required>
 </div>
-<button type="submit" class="btn btn-success">Add/Edit Item</button>`;
+</form>
+<button type="submit" class="btn btn-success" id="${obj.firebaseKey ? `edit-item--${obj.firebaseKey}` : 'add-item'}">Add/Edit Item</button>`;
 
   renderToDOM('#form-container', domString);
 };
 
-export default addItemForm;
+export default addItem;

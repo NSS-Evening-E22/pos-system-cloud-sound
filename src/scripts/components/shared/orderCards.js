@@ -16,6 +16,7 @@ const showOrders = (array) => {
             <p class="card-text bold">${item.status}</p>
             <p class="card-text bold">${item.type}</p>
             <hr>
+            <i id="view-details-btn--${item.firebaseKey}">View Items</i>
             <i id="edit-order-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
             <i id="delete-order-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
         </div>

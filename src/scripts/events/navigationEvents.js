@@ -1,5 +1,5 @@
 import showOrders from '../components/shared/orderCards';
-import getOrders from '../../api/orderData';
+import { getOrders } from '../../api/orderData';
 import landingPage from '../../../pages/landingPage';
 import domEvents from './domEvents';
 

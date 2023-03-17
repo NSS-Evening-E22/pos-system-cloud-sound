@@ -17,7 +17,7 @@ const createOrderPage = () => {
     <input type="text" class="form-control" id="custemail">
   </div>
   <div class="dropdown-center">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" id="custtype" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Order Type
   </button>
   <ul class="dropdown-menu">
@@ -25,9 +25,9 @@ const createOrderPage = () => {
     <li><a class="dropdown-item" href="#">Phone</a></li>
   </ul>
 </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" id="submit-order">Submit</button>
   </form>`;
-  renderToDOM('#main-container', domString);
+  renderToDOM('#store', domString);
 };
 
 export default createOrderPage;

@@ -8,13 +8,10 @@ const viewRevenue = () => {
   document.querySelector('#store').innerHTML = `
   <div class="revenuePage">  
     <div class="revenueHeader" id="welcome-title">
+    <br>
         <h1>REVENUE</h1>
       </div>
       <br>
-      <div>
-        <h3>DATE RANGE:</h3><br>
-        <h3 id="dateRange"><h3><br>
-      </div>
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 my-3">
       <div class="card-list">
           <div class="row">

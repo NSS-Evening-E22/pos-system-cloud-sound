@@ -114,8 +114,72 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   justify-content: center;
 
 }
-
-#totalRev{
-  margin: 100px;
+.row{
+  display: flex;
+  flex-direction: row;
+  width: 75rem;
+  justify-content: center;
 }
 
+.card {
+	border-radius: 8px;
+	color: rgb(0, 0, 0);
+	padding: 10px;
+	position: relative;
+
+	.zmdi {
+		color: white;
+		font-size: 28px;
+		opacity: 0.3;
+		position: absolute;
+		right: 13px;
+		top: 13px;
+	}
+	
+	.stat {
+		border-top: 1px solid rgba(255, 255, 255, 0.3);
+		font-size: 8px;
+		margin-top: 25px;
+		padding: 10px 10px 0;
+		text-transform: uppercase;
+	}
+	
+	.title {
+		display: inline-block;
+    color: white;
+		font-size: 18px;
+    font-weight: 100;
+		padding: 10px 10px 0;
+		text-transform: uppercase;
+	}
+	
+	.value {
+    color: white;
+		font-size: 28px;
+		padding: 0 10px;
+	}
+	
+	&.blue {
+		background-color: #2298F1;
+	}
+	
+	&.green {
+		background-color: #66B92E;
+	}
+	
+	&.orange {
+		background-color: #DA932C;
+	}
+	
+	&.red {
+		background-color: #D65B4A;
+	}
+
+  &.black{
+		background-color: #08090a;
+	}
+};
+
+.col-12{
+  width: 250px;
+}

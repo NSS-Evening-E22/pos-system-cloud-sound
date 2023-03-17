@@ -27,7 +27,7 @@ const createOrderPage = () => {
 </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>`;
-  renderToDOM('#main-container', domString);
+  renderToDOM('#store', domString);
 };
 
 export default createOrderPage;

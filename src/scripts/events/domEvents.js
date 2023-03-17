@@ -1,16 +1,13 @@
-
-import { getOrders } from '../../api/orderData';
-import createOrderPage from '../../../pages/createOrder';
-import showOrders from '../components/shared/orderCards';
-
+import getOrderDetails from '../../api/itemData';
+import showDetails from '../components/shared/orderDetailsCard';
 
 const domEvents = () => {
-  document.querySelector('#view-order').addEventListener('click', () => {
-    getOrders().then(showOrders);
-  });
-
-  document.querySelector('#create-order').addEventListener('click', () => {
-    createOrderPage();
+  document.querySelector('#main-container').addEventListener('click', (e) => {
+    // CLICK EVENT FOR VIEWING DETAILS
+    if (e.target.id.includes('#view-details-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getOrderDetails(firebaseKey).then(showDetails);
+    }
   });
 };
 

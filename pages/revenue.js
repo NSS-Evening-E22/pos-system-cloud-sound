@@ -46,21 +46,21 @@ const viewRevenue = () => {
               <br>
               <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
               <div class="card black" style="height: 50%, width: 25%">
-                  <div class="title">Cash Orders</div>
+                  <div class="title">Cash Payment</div>
                   <i class="zmdi zmdi-download"></i>
                   <div class="value" id="cash-orders"></div>
               </div>
           </div>
           <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
               <div class="card black" style="height: 50%, width: 25%">
-                  <div class="title">Credit Orders</div>
+                  <div class="title">Credit Payment</div>
                   <i class="zmdi zmdi-download"></i>
                   <div class="value" id="credit-orders"></div>
               </div>
           </div>
           <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
               <div class="card black" style="height: 50%, width: 25%">
-                  <div class="title">Mobile Orders</div>
+                  <div class="title">Mobile Payment</div>
                   <i class="zmdi zmdi-download"></i>
                   <div class="value" id="mobile-orders"></div>
               </div>

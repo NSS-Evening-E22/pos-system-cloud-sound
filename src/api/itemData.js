@@ -1,6 +1,5 @@
 import firebaseConfig from './apiKeys';
 
-
 // api call for items
 const endpoint = firebaseConfig.databaseUrl;
 
@@ -36,7 +35,6 @@ const editItem = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-
 const getOrderDetails = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/items.json?orderBy="order_id"&equalTo="${firebaseKey}"`, {
     method: 'GET',
@@ -54,5 +52,3 @@ export {
   addItem,
   getOrderDetails
 };
-
-

@@ -1,4 +1,4 @@
-import getOrderDetails from '../../api/itemData';
+import { getOrderDetails } from '../../api/itemData';
 import { deleteOrder, getOrders } from '../../api/orderData';
 import showOrders from '../components/shared/orderCards';
 import showDetails from '../components/shared/orderDetailsCard';

@@ -1,15 +1,15 @@
 import clearDom from '../../../../utils/clearDom';
 import renderToDOM from '../../../../utils/renderToDom';
 
-const showDetails = (array) => {
+const showDetails = (array, orderId) => {
+  console.warn('my array is', orderId);
   clearDom();
-
   let domString = `<div>
   <div id="text-style">
-  <button type="button" class="btn btn-success btn-lg btn-3" id="add-item" style="width: 200px">Add item</button>
+  <button type="button" class="btn btn-success btn-lg btn-3" id="add-item--${orderId}" style="width: 200px">Add item</button>
   <br>
   <br>
-  <button type="button" class="btn btn-success btn-lg btn-3" id="go-to-payment" style="width: 200px">Go To Payment</button>
+  <button type="button" class="btn btn-success btn-lg btn-3" id="go-to-payment--${orderId}" style="width: 200px">Go To Payment</button>
   </div>
   </div>`;
   array.forEach((item) => {
@@ -19,8 +19,8 @@ const showDetails = (array) => {
           <h5 class="card-title">${item.item_name}</h5>
             <p class="card-text bold">${item.price}</p>
             <hr>
-            <i id="edit-item-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
-            <i id="delete-item-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
+            <i id="edit-item-btn--${item.firebaseKey}" class="btn btn-info">Edit</i>
+            <i id="delete-item-btn--${item.firebaseKey}----${item.order_id}" class="btn btn-danger">Delete</i>
         </div>
       </div>`;
   });

@@ -75,6 +75,19 @@ const formEvents = () => {
         addItem().then(showDetails);
       });
     }
+
+    if (e.target.id.includes('close-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payLoad = {
+        type: document.querySelector('#payment').value,
+        tip_amount: document.querySelector('#tips').value,
+        status: 'closed',
+        firebaseKey,
+      };
+      updateOrders(payLoad).then(() => {
+        getOrders().then(showOrders);
+      });
+    }
   });
 };
 

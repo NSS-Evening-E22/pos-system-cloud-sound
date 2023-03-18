@@ -6,8 +6,9 @@ const createOrderPage = (obj = {}) => {
   let domString = '';
   domString += `  
   <form id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'}" class="mb-4">
+  <br>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label" Order Name</label>
+      <label for="exampleInputEmail1" class="form-label"> Order Name</label>
       <input type="text" class="form-control" id="ordername" aria-describedby="emailHelp" value="${obj.name || ''}" required>
     </div>
     <div class="mb-3">

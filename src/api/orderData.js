@@ -42,6 +42,8 @@ const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// CREATE ORDER
+
 const createOrders = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders.json`, {
     method: 'POST',
@@ -54,6 +56,22 @@ const createOrders = (payload) => new Promise((resolve, reject) => {
     .then((data) => resolve(data))
     .catch(reject);
 });
+
+// GET SINGLE ORDER
+
+const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+// EDIT ORDER
 
 const updateOrders = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders/${payload.firebaseKey}.json`, {
@@ -69,5 +87,5 @@ const updateOrders = (payload) => new Promise((resolve, reject) => {
 });
 
 export {
-  getOrders, createOrders, updateOrders, deleteOrder
+  getOrders, createOrders, updateOrders, deleteOrder, getSingleOrder
 };

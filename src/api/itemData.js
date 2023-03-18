@@ -1,7 +1,7 @@
 import firebaseConfig from './apiKeys';
 
 // api call for items
-const endpoint = firebaseConfig.databaseUrl;
+const endpoint = firebaseConfig.databaseURL;
 
 // add item
 const addItem = () => new Promise((resolve, reject) => {

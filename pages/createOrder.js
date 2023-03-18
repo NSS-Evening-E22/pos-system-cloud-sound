@@ -1,9 +1,11 @@
+import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
-const createOrderPage = () => {
+const createOrderPage = (obj = {}) => {
+  clearDom();
   let domString = '';
   domString += `  
-  <form>
+  <form id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'}" class="mb-4">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Order Name</label>
       <input type="text" class="form-control" id="ordername" aria-describedby="emailHelp">
@@ -16,15 +18,14 @@ const createOrderPage = () => {
     <label for="exampleInputPassword1" class="form-label">Customer Email</label>
     <input type="text" class="form-control" id="custemail">
   </div>
-  <div class="dropdown-center">
-  <button class="btn btn-secondary dropdown-toggle" id="custtype" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Order Type
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">In-Person</a></li>
-    <li><a class="dropdown-item" href="#">Phone</a></li>
-  </ul>
+  <label for="order-type">Order Type</label>
+  <select class="form-control" placeholder="Select Order Type" id="custtype" name="orderType" value="${obj.type || ''}" required>
+  <option value="">Select Order Type</option>
+    <option value="in-person" ${obj.type === 'in-person' ? 'selected' : ''}>In-Person</option>
+    <option value="phone" ${obj.type === 'phone' ? 'selected' : ''}>Phone</option>
+  </select>
 </div>
+<br>
     <button type="submit" class="btn btn-primary" id="submit-order">Submit</button>
   </form>`;
   renderToDOM('#store', domString);

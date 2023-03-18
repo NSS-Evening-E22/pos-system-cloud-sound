@@ -1,5 +1,5 @@
 import renderToDOM from '../../../../utils/renderToDom';
-import storeLogo from '../../../../instructions/Red Pizza Logo.png';
+import storeLogo from '../../../../instructions/hhpw-record.png';
 
 const navBar = () => {
   const domString = `

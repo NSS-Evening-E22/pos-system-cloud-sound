@@ -9,9 +9,9 @@ const paymentForm = (obj = {}) => {
         <label for="category">Payment Type</label>
           <select class="form-control" placeholder="Select Category" id="payment" name="paymentType" value="${obj.paymentType || ''}" required>
           <option value="">Select a payment type</option>
-            <option value="Card" >Card</option>
-            <option value="Cash">Cash</option>
-            <option value="Check">Check</option>
+            <option value="credit" >Credit Card</option>
+            <option value="cash">Cash</option>
+            <option value="mobile">Mobile</option>
           </select>
         </div>
         <br>

@@ -13,9 +13,12 @@ const formEvents = () => {
         name: document.querySelector('#ordername').value,
         phone: document.querySelector('#custphone').value,
         email: document.querySelector('#custemail').value,
-        type: document.querySelector('#custtype').value
+        type: document.querySelector('#custtype').value,
+        status: 'open',
+        order_total: 0,
+        tip_amount: 0,
       };
-
+      console.warn('btn is clicked ', payload);
       createOrders(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
 

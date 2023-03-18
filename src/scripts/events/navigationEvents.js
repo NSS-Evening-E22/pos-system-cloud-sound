@@ -3,6 +3,8 @@ import { getOrders } from '../../api/orderData';
 import landingPage from '../../../pages/landingPage';
 import domEvents from './domEvents';
 import landPageEvents from './landPageEvents';
+import viewRevenue from '../../../pages/revenue';
+import createOrderPage from '../../../pages/createOrder';
 
 const navigationEvents = (user) => {
   // VIEW ALL ORDERS
@@ -14,6 +16,14 @@ const navigationEvents = (user) => {
     landingPage(user);
     landPageEvents();
     domEvents();
+  });
+
+  document.querySelector('#create-order').addEventListener('click', () => {
+    createOrderPage();
+  });
+
+  document.querySelector('#view-revenue').addEventListener('click', () => {
+    viewRevenue();
   });
 };
 

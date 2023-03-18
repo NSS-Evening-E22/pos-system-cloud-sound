@@ -4,7 +4,14 @@ import renderToDOM from '../../../../utils/renderToDom';
 const showDetails = (array) => {
   clearDom();
 
-  let domString = '';
+  let domString = `<div>
+  <div id="text-style">
+  <button type="button" class="btn btn-success btn-lg btn-3" id="add-item" style="width: 200px">Add item</button>
+  <br>
+  <br>
+  <button type="button" class="btn btn-success btn-lg btn-3" id="go-to-payment" style="width: 200px">Go To Payment</button>
+  </div>
+  </div>`;
   array.forEach((item) => {
     domString += `
       <div id="details-card" class="card">

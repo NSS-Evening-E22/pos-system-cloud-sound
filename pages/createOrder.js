@@ -6,6 +6,7 @@ const createOrderPage = (obj = {}) => {
   let domString = '';
   domString += `  
   <form id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'}" class="mb-4">
+  <h1 id="welcome-title"> Create An Order </h1>
   <br>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label"> Order Name</label>

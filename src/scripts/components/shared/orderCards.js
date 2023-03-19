@@ -4,7 +4,7 @@ import renderToDom from '../../../../utils/renderToDom';
 const showOrders = (array) => {
   clearDom();
 
-  let domString = '';
+  let domString = '<div style = "width:200rem"><h1 id="welcome-title">Orders</h1></div>';
   array.forEach((item) => {
     domString += `
       <div id= "order-card" class="card">

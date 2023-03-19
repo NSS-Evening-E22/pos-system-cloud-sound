@@ -5,6 +5,7 @@ const paymentForm = (obj) => {
   clearDom();
   const domString = `
     <form id="close-order--${obj.firebaseKey}" class="mb-4">
+    <h1 id="welcome-title">Close An Order </h1>
         <div class="form-group" id="select-payment">
         <label for="category">Payment Type</label>
           <select class="form-control" placeholder="Select Category" id="payment" name="paymentType" required>

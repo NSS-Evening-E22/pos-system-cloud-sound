@@ -27,7 +27,7 @@ body {
   width: 500px;
 }
 #welcome-title {
-  font-family: 'Brush Script MT';
+  font-family: 'Impact';
   font-size: 5vw;
   margin: 0;
   padding-bottom: 0.5rem;
@@ -116,7 +116,7 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   text-align: center;
   margin: auto;
   justify-content: center;
-
+  color: white;
 }
 .row{
   display: flex;
@@ -124,9 +124,7 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   width: 75rem;
   justify-content: center;
 }
-#store{
-  color: white;
-}
+
 .card {
 	border-radius: 8px;
 	color: rgb(8, 1, 1);
@@ -198,6 +196,21 @@ border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 backdrop-filter: blur(0px); background-color: rgba(255, 255, 255, 0.2); border-radius: 29px; box-shadow: 35px 35px 68px 0px rgba(7, 8, 8, 0.5), inset -4px -4px 16px 0px rgba(7, 8, 8, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
 }
-.mb-4{
+
+#details-card{
+  background-color: white;
+  color:#08090a;
+  border-radius: 8px;
+	padding: 10px;
+	position: relative;
+}
+
+.items-add-btn{
+  display: block;
+  margin: 30px 800px 10px 800px;
+}
+
+#form-container{
+  padding-top: 20px;
   color: white;
 }

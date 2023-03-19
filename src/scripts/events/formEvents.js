@@ -80,7 +80,7 @@ const formEvents = () => {
       const [, firebaseKey] = e.target.id.split('--');
       const payLoad = {
         type: document.querySelector('#payment').value,
-        tip_amount: document.querySelector('#tips').value,
+        tip_amount: Number(document.querySelector('#tips').value),
         status: 'closed',
         firebaseKey,
       };

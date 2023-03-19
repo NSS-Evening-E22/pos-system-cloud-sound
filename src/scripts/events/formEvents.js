@@ -19,6 +19,7 @@ const formEvents = () => {
         status: 'open',
         order_total: 0,
         tip_amount: 0,
+        time_stamp: new Date().toLocaleString(),
       };
       console.warn('btn is clicked ', payload);
       createOrders(payload).then(({ name }) => {

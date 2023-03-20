@@ -12,8 +12,8 @@ const startApp = (user) => {
   navBar();
   landingPage(user);
   landPageEvents();
-  formEvents();
   domEvents();
+  formEvents();
   navigationEvents(user);
   logoutButton();
 };

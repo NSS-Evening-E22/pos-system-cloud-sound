@@ -8,6 +8,8 @@ const formEvents = () => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
 
+    // CREATE ORDER
+
     if (e.target.id.includes('submit-order')) {
       const payload = {
         name: document.querySelector('#ordername').value,
@@ -28,6 +30,25 @@ const formEvents = () => {
       });
     }
 
+    // EDIT ORDER
+
+    if (e.target.id.includes('update-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        name: document.querySelector('#ordername').value,
+        phone: document.querySelector('#custphone').value,
+        email: document.querySelector('#custemail').value,
+        type: document.querySelector('#custtype').value,
+        firebaseKey,
+      };
+
+      updateOrders(payload).then(() => {
+        getOrders().then(showOrders);
+      });
+    }
+
+    // ADD ITEM
+
     if (e.target.id.includes('add-item')) {
       const payLoad = {
         item_name: document.querySelector('#item_name').value,
@@ -40,6 +61,8 @@ const formEvents = () => {
         });
       });
     }
+
+    // EDIT ITEM
 
     if (e.target.id.includes('edit-item')) {
       const [, firebaseKey] = e.target.id.split('--');

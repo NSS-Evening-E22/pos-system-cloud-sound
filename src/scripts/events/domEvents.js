@@ -1,6 +1,7 @@
+import createOrderPage from '../../../pages/createOrder';
 import { getOrderDetails } from '../../api/itemData';
-import { deleteOrder, getOrders } from '../../api/orderData';
 import addItemForm from '../components/shared/addItemForm';
+import { deleteOrder, getOrders, getSingleOrder } from '../../api/orderData';
 import showOrders from '../components/shared/orderCards';
 import showDetails from '../components/shared/orderDetailsCard';
 
@@ -12,12 +13,14 @@ const domEvents = () => {
       getOrderDetails(firebaseKey).then(showDetails);
     }
 
+
     // click event for showing add item form
     if (e.target.id.includes('add-item')) {
       addItemForm();
     }
 
-    // delete order
+    // DELETE ORDER
+
     if (e.target.id.includes('delete-order-btn')) {
       if (window.confirm('Want to Delete?')) {
         console.warn('CLICKED DELETE ORDER', e.target.id);
@@ -26,6 +29,11 @@ const domEvents = () => {
           getOrders().then(showOrders);
         });
       }
+    }
+    // EDIT ORDER
+    if (e.target.id.includes('edit-order-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then((orderObj) => createOrderPage(orderObj));
     }
   });
 };

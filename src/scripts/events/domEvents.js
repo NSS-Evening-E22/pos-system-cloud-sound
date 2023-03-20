@@ -1,19 +1,25 @@
 import { getOrderDetails } from '../../api/itemData';
 import { deleteOrder, getOrders } from '../../api/orderData';
+import addItemForm from '../components/shared/addItemForm';
 import showOrders from '../components/shared/orderCards';
 import showDetails from '../components/shared/orderDetailsCard';
 
 const domEvents = () => {
-  document.querySelector('#main-container').addEventListener('click', (e) => {
-    // CLICK EVENT FOR VIEWING DETAILS
+  document.querySelector('main-container').addEventListener('click', (e) => {
+    // click event for viewing details
     if (e.target.id.includes('view-details-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       getOrderDetails(firebaseKey).then(showDetails);
     }
-    // DELETE WORD
+
+    // click event for showing add item form
+    if (e.target.id.includes('add-item')) {
+      addItemForm();
+    }
+
+    // delete order
     if (e.target.id.includes('delete-order-btn')) {
-      // eslint-disable-next-line no-alert
-      if (window.confirm('Want to delete?')) {
+      if (window.confirm('Want to Delete?')) {
         console.warn('CLICKED DELETE ORDER', e.target.id);
         const [, firebaseKey] = e.target.id.split('--');
         deleteOrder(firebaseKey).then(() => {

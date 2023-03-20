@@ -19,6 +19,7 @@ const formEvents = () => {
         status: 'open',
         order_total: 0,
         tip_amount: 0,
+        time_stamp: new Date().toLocaleString(),
       };
       console.warn('btn is clicked ', payload);
       createOrders(payload).then(({ name }) => {
@@ -73,6 +74,19 @@ const formEvents = () => {
       };
       editItem(payLoad).then(() => {
         addItem().then(showDetails);
+      });
+    }
+
+    if (e.target.id.includes('close-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payLoad = {
+        type: document.querySelector('#payment').value,
+        tip_amount: Number(document.querySelector('#tips').value),
+        status: 'closed',
+        firebaseKey,
+      };
+      updateOrders(payLoad).then(() => {
+        getOrders().then(showOrders);
       });
     }
   });

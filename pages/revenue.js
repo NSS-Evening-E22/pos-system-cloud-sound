@@ -7,9 +7,9 @@ const viewRevenue = () => {
   clearDom();
   document.querySelector('#store').innerHTML = `
   <div class="revenuePage">  
-    <div class="revenueHeader" id="welcome-title">
+    <div class="revenueHeader">
     <br>
-        <h1>REVENUE</h1>
+        <h1 id="welcome-title">REVENUE</h1>
       </div>
       <br>
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 my-3">

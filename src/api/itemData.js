@@ -47,8 +47,27 @@ const getOrderDetails = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const deleteAnItem = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/items/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 export {
   editItem,
   addItem,
-  getOrderDetails
+  getOrderDetails,
+  deleteAnItem,
 };

@@ -1,6 +1,8 @@
 import createOrderPage from '../../../pages/createOrder';
-import { getOrderDetails } from '../../api/itemData';
+import paymentForm from '../../../pages/payment';
+import { deleteAnItem, getOrderDetails } from '../../api/itemData';
 import addItemForm from '../components/shared/addItemForm';
+
 import { deleteOrder, getOrders, getSingleOrder } from '../../api/orderData';
 import showOrders from '../components/shared/orderCards';
 import showDetails from '../components/shared/orderDetailsCard';
@@ -9,8 +11,8 @@ const domEvents = () => {
   document.querySelector('main-container').addEventListener('click', (e) => {
     // click event for viewing details
     if (e.target.id.includes('view-details-btn')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      getOrderDetails(firebaseKey).then(showDetails);
+      const [, orderId] = e.target.id.split('--');
+      getOrderDetails(orderId).then((obj) => showDetails(obj, orderId));
     }
 
 
@@ -35,6 +37,18 @@ const domEvents = () => {
     if (e.target.id.includes('edit-order-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleOrder(firebaseKey).then((orderObj) => createOrderPage(orderObj));
+    }
+
+    if (e.target.id.includes('go-to-payment')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then((orderObj) => paymentForm(orderObj));
+    }
+
+    if (e.target.id.includes('delete-item-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const [, orderId] = e.target.id.split('----');
+      deleteAnItem(firebaseKey).then((obj) => showDetails(obj));
+      getOrderDetails(orderId).then((obj) => showDetails(obj));
     }
   });
 };

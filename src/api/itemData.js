@@ -6,7 +6,7 @@ const endpoint = firebaseConfig.databaseURL;
 // add item
 const addItem = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/items.json`, {
-    method: 'GET',
+    method: 'POST',
     headers: {
       'Content-type': 'application/json',
     },

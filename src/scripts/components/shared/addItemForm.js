@@ -1,7 +1,7 @@
 import clearDom from '../../../../utils/clearDom';
 import renderToDOM from '../../../../utils/renderToDom';
 
-const addItem = (obj) => {
+const addItemForm = (obj) => {
   clearDom();
   const domString = `
 <form id="${obj.firebaseKey ? `edit-item--${obj.firebaseKey}` : 'submit-card'}"
@@ -19,4 +19,4 @@ const addItem = (obj) => {
   renderToDOM('#form-container', domString);
 };
 
-export default addItem;
+export default addItemForm;

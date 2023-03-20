@@ -22,6 +22,7 @@ const domEvents = () => {
     // DELETE ORDER
 
     if (e.target.id.includes('delete-order-btn')) {
+    // eslint-disable-next-line no-alert
       if (window.confirm('Want to Delete?')) {
         console.warn('CLICKED DELETE ORDER', e.target.id);
         const [, firebaseKey] = e.target.id.split('--');

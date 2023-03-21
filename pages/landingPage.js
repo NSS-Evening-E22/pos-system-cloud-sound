@@ -1,6 +1,8 @@
+import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
 const landingPage = (user) => {
+  clearDom();
   document.querySelector('#store').innerHTML = '';
   const domString = `
         <div>

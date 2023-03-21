@@ -118,6 +118,15 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   justify-content: center;
   color: white;
 }
+#view {
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+  color: white;
+}
 .row{
   display: flex;
   flex-direction: row;

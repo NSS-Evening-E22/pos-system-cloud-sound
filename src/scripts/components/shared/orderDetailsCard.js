@@ -1,16 +1,22 @@
 import clearDom from '../../../../utils/clearDom';
 import renderToDOM from '../../../../utils/renderToDom';
 
-const itemsTotal = (array) => {
-  let total = 0;
-  array.forEach((item) => {
-    total += item.price;
-  });
-  return total.toFixed(2);
+// const itemsTotal = (array) => {
+//   let total = 0;
+//   array.forEach((item) => {
+//     total += item.price;
+//   });
+//   return total.toFixed(2);
+// };
+
+const ItemSum = (array) => {
+  const addItemsTotal = array.filter((item) => item.price);
+  const itemsValue = addItemsTotal.reduce((a, b) => a + b.price, 0);
+  return itemsValue.toFixed(2);
 };
 
 const showDetails = (array, orderId) => {
-  const totalOfItems = itemsTotal(array);
+  const totalOfItems = ItemSum(array);
   clearDom();
   let domString = `
   <h1 id="welcome-title"> Order's Items </h1>

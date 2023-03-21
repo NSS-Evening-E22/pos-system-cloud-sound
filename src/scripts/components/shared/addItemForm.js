@@ -2,7 +2,6 @@ import clearDom from '../../../../utils/clearDom';
 import renderToDOM from '../../../../utils/renderToDom';
 
 const addItemsForm = (obj = {}, orderId) => {
-  console.warn('my order is', orderId);
   clearDom();
   const domString = `
 <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : `submit-item--${orderId}`}">

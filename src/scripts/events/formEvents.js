@@ -20,7 +20,6 @@ const formEvents = () => {
         status: 'open',
         time_stamp: new Date().toLocaleString(),
       };
-      console.warn('btn is clicked ', payload);
       createOrders(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
 

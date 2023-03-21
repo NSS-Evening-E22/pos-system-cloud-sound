@@ -85,7 +85,7 @@ const formEvents = () => {
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payLoad = {
-        type: document.querySelector('#payment').value,
+        payment_method: document.querySelector('#payment').value,
         tip_amount: Number(document.querySelector('#tips').value),
         status: 'closed',
         firebaseKey,

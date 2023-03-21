@@ -1,7 +1,7 @@
 import createOrderPage from '../../../pages/createOrder';
 import paymentForm from '../../../pages/payment';
-import { deleteAnItem, getOrderDetails } from '../../api/itemData';
-import addItemForm from '../components/shared/addItemForm';
+import { deleteAnItem, getOrderDetails, getSingleItem } from '../../api/itemData';
+import addItemsForm from '../components/shared/addItemForm';
 import { deleteOrder, getOrders, getSingleOrder } from '../../api/orderData';
 import showOrders from '../components/shared/orderCards';
 import showDetails from '../components/shared/orderDetailsCard';
@@ -14,8 +14,9 @@ const domEvents = () => {
       getOrderDetails(orderId).then((obj) => showDetails(obj, orderId));
     }
     // click event for showing add item form
-    if (e.target.id.includes('add-item')) {
-      addItemForm();
+    if (e.target.id.includes('add-items')) {
+      const [, orderId] = e.target.id.split('--');
+      getSingleOrder(orderId).then((orderObj) => addItemsForm(orderObj.firebaseKey, orderId));
     }
     // DELETE ORDER
     if (e.target.id.includes('delete-order-btn')) {
@@ -39,11 +40,22 @@ const domEvents = () => {
       getSingleOrder(firebaseKey).then((orderObj) => paymentForm(orderObj));
     }
 
-    if (e.target.id.includes('delete-item-btn')) {
+    if (e.target.id.includes('edit-items-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      const [, orderId] = e.target.id.split('----');
-      deleteAnItem(firebaseKey).then((obj) => showDetails(obj));
-      getOrderDetails(orderId).then((obj) => showDetails(obj));
+      getSingleItem(firebaseKey).then((item) => {
+        addItemsForm(item, item.order_id);
+      });
+    }
+
+    if (e.target.id.includes('delete-item-btn')) {
+    // eslint-disable-next-line no-alert
+      if (window.confirm('Want to Delete?')) {
+        const [, firebaseKey] = e.target.id.split('--');
+        const [, orderId] = e.target.id.split('----');
+        deleteAnItem(firebaseKey).then(() => {
+          getOrderDetails(orderId).then((obj) => showDetails(obj, orderId));
+        });
+      }
     }
   });
 };

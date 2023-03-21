@@ -4,25 +4,32 @@ import firebaseConfig from './apiKeys';
 const endpoint = firebaseConfig.databaseURL;
 
 // add item
-const addItem = () => new Promise((resolve, reject) => {
+const createItem = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/items.json`, {
     method: 'POST',
     headers: {
-      'Content-type': 'application/json',
+      'Content-Type': 'application/json',
     },
+    body: JSON.stringify(payload),
   })
     .then((response) => response.json())
-    .then((data) => {
-      if (data) {
-        resolve(Object.values(data));
-      } else {
-        resolve([]);
-      }
-    })
+    .then((data) => resolve(data))
     .catch(reject);
 });
 
-const editItem = (payload) => new Promise((resolve, reject) => {
+const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/items/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const updateItem = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/items/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
@@ -35,8 +42,8 @@ const editItem = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getOrderDetails = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/items.json?orderBy="order_id"&equalTo="${firebaseKey}"`, {
+const getOrderDetails = (orderId) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/items.json?orderBy="order_id"&equalTo="${orderId}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -66,8 +73,9 @@ const deleteAnItem = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 export {
-  editItem,
-  addItem,
+  updateItem,
+  createItem,
   getOrderDetails,
   deleteAnItem,
+  getSingleItem,
 };

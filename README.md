@@ -13,6 +13,7 @@ Hip-Hop Pizza and Wangs is a website made for a locally-owned pizza and wings re
 
 
 ## Features
+* **Google Authentication:** User authentication through Firebase so that each user can be tracked in the system
 * When a new order is added, it is added into our database and displayed on the DOM on our View Orders page.
 * **Adding items**: Once an order is added, the user can go into the order to add items. In the add items screen, the user can add the item and the item total.
 * **View Revenue**: This page adds up the total cost of all orders in the database and displays the total. It also displays the total amount of all tips added to orders, the number of called in vs walk-in orders, and the number of cash vs card payments.

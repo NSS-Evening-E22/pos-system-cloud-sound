@@ -4,6 +4,8 @@
 
 Hip-Hop Pizza and Wangs is a website made for a locally-owned pizza and wings restaurant. It is built to be the server’s point-of-sale system used to enter and keep track of sales, orders, and revenue. 
 
+[Click here to see the deployed project](https://mestany-hip-hop-pizza.netlify.app/)
+
 ## Ideal User
 * The ideal user for this application is a server or owner at Hip-Hop Pizza and Wangs
 * They need to keep track of things like how their orders come in (by phone or walk-in) and how much they’re earning in revenue and tips.

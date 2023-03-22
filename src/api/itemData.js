@@ -3,6 +3,24 @@ import firebaseConfig from './apiKeys';
 // api call for items
 const endpoint = firebaseConfig.databaseURL;
 
+const getAllItems = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/items.json`, {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 // add item
 const createItem = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/items.json`, {
@@ -78,4 +96,5 @@ export {
   getOrderDetails,
   deleteAnItem,
   getSingleItem,
+  getAllItems,
 };

@@ -1,21 +1,24 @@
+import { getAllItems } from '../api/itemData';
 import { getOrders } from '../api/orderData';
-
-const totalRevenue = () => {
-  getOrders().then((orders) => {
-    const closedTotalOrders = orders.filter((order) => order.order_total);
-    const ordersTotal = closedTotalOrders.reduce((a, b) => a + b.order_total, 0);
-    const closedTipsAmounts = orders.filter((order) => order.tip_amount);
-    const tipsTotal = closedTipsAmounts.reduce((a, b) => a + b.tip_amount, 0);
-    const totalRev = Math.round(ordersTotal) + Math.round(tipsTotal);
-    document.querySelector('#totalRev').innerHTML += `$${totalRev}`;
-  });
-};
 
 const totalTips = () => {
   getOrders().then((orders) => {
     const tipsClosed = orders.filter((order) => order.tip_amount);
     const tipsTotalAmount = tipsClosed.reduce((a, b) => a + b.tip_amount, 0);
     document.querySelector('#totalTips').innerHTML += `$${tipsTotalAmount}`;
+  });
+};
+
+const totalRevenue = () => {
+  getAllItems().then((items) => {
+    const totalPrices = items.filter((item) => item.price);
+    const ordersTotal = totalPrices.reduce((a, b) => a + b.price, 0);
+    getOrders().then((orders) => {
+      const allTips = orders.filter((order) => order.tip_amount);
+      const tipsTotal = allTips.reduce((a, b) => a + b.tip_amount, 0);
+      const totalRev = ordersTotal + tipsTotal;
+      document.querySelector('#totalRev').innerHTML += `$${totalRev.toFixed(2)}`;
+    });
   });
 };
 

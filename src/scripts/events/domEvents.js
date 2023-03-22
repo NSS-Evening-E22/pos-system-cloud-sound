@@ -2,9 +2,10 @@ import createOrderPage from '../../../pages/createOrder';
 import paymentForm from '../../../pages/payment';
 import { deleteAnItem, getOrderDetails, getSingleItem } from '../../api/itemData';
 import addItemsForm from '../components/shared/addItemForm';
-import { deleteOrder, getOrders, getSingleOrder } from '../../api/orderData';
+import { getOrders, getSingleOrder } from '../../api/orderData';
 import showOrders from '../components/shared/orderCards';
 import showDetails from '../components/shared/orderDetailsCard';
+import deleteOrderItems from '../../api/mergedData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -24,7 +25,7 @@ const domEvents = () => {
       if (window.confirm('Want to Delete?')) {
         console.warn('CLICKED DELETE ORDER', e.target.id);
         const [, firebaseKey] = e.target.id.split('--');
-        deleteOrder(firebaseKey).then(() => {
+        deleteOrderItems(firebaseKey).then(() => {
           getOrders().then(showOrders);
         });
       }

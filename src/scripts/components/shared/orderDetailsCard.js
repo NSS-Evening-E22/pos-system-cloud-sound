@@ -2,22 +2,25 @@ import clearDom from '../../../../utils/clearDom';
 import renderToDOM from '../../../../utils/renderToDom';
 import { getSingleOrder } from '../../../api/orderData';
 
-// const itemsTotal = (array) => {
-//   let total = 0;
-//   array.forEach((item) => {
-//     total += item.price;
-//   });
-//   return total.toFixed(2);
-// };
+const itemsTotal = (array) => {
+  let total = 0;
+  array.forEach((item) => {
+    total += item.price;
+  });
+  return total.toFixed(2);
+};
 
-const ItemSum = (array) => {
+const ItemSum = (array, orderId) => {
   const addItemsTotal = array.filter((item) => item.price);
   const itemsValue = addItemsTotal.reduce((a, b) => a + b.price, 0);
-  return itemsValue.toFixed(2);
+  getSingleOrder(orderId).then((order) => {
+    const orderTotalAmt = itemsValue + order.tip_amount;
+    document.querySelector('#showTotal').innerHTML = `<h1 id="showTotal">Total $${orderTotalAmt} </h1>`;
+  });
 };
 
 const showDetails = (array, orderId) => {
-  const totalOfItems = ItemSum(array);
+  const totalOfItems = itemsTotal(array);
   clearDom();
   getSingleOrder(orderId).then((order) => {
     if (order.status === 'open') {
@@ -46,10 +49,11 @@ const showDetails = (array, orderId) => {
       });
       renderToDOM('#store', domString);
     } else {
+      const closedTotal = ItemSum(array, orderId);
       let domCard = `
         <h1 id="welcome-title"> Order's Items </h1>
         <div id="text-style" class="items-add-btn" >
-       <h1>Total: $${totalOfItems} </h1>
+       <h1 id="showTotal">Total: $${closedTotal} </h1>
         </div>`;
       array.forEach((item) => {
         domCard += `

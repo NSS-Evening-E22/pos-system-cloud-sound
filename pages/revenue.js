@@ -68,8 +68,8 @@ const viewRevenue = () => {
           </div>
       </div>
       `;
-  totalRevenue();
   totalTips();
+  totalRevenue();
   totalCallinOrders();
   totalWalkinOrders();
   totalCashOrders();

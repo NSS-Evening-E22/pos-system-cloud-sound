@@ -7,7 +7,7 @@ const welcomePage = () => {
   const domString = `
       <div>
       <div id="text-style">
-      <h1 id="text-styles"> Welcome to Hip-Hop Pizza and Wangs</h1>
+      <h1 id="welcome-title"> Welcome to Hip-Hop Pizza and Wangs</h1>
       <img src=${logo} alt="store logo">
       <div id="login-button"><div>
       </div>

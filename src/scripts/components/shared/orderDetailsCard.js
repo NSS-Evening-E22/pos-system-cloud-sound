@@ -17,7 +17,7 @@ const ItemSum = (array, orderId) => {
     const orderTotalAmt = itemsValue + order.tip_amount;
     document.querySelector('#showTotal').innerHTML = `<div>
     <h1>Total $${orderTotalAmt} </h1>
-   <p class="closedTotals">Items: $${itemsValue}  Tips: $${order.tip_amount}</p>`;
+   <p class="closedTotals">Items: $${itemsValue}  Tips:$${order.tip_amount}</p>`;
   });
 };
 

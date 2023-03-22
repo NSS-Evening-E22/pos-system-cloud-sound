@@ -12,9 +12,9 @@ Hip-Hop Pizza and Wangs is a website made for a locally-owned pizza and wings re
 
 ## Features
 * When a new order is added, it is added into our database and displayed on the DOM on our View Orders page.
-* Adding items: Once an order is added, the user can go into the order to add items. In the add items screen, the user can add the item and the item total.
-* View Revenue: This page adds up the total cost of all orders in the database and displays the total. It also displays the total amount of all tips added to orders, the number of called in vs walk-in orders, and the number of cash vs card payments.
-* Editing Items and Orders: On already created items or orders, the user can use the edit button to go back and change any information that was originally added.
+* **Adding items**: Once an order is added, the user can go into the order to add items. In the add items screen, the user can add the item and the item total.
+* **View Revenue**: This page adds up the total cost of all orders in the database and displays the total. It also displays the total amount of all tips added to orders, the number of called in vs walk-in orders, and the number of cash vs card payments.
+* **Editing Items and Orders**: On already created items or orders, the user can use the edit button to go back and change any information that was originally added.
 
 ## Contributors
 * [Michael](https://github.com/Mestany2)

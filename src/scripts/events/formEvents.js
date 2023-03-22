@@ -1,5 +1,6 @@
-import { editItem } from '../../api/itemData';
-import addItem from '../components/shared/addItemForm';
+import {
+  createItem, getOrderDetails, updateItem
+} from '../../api/itemData';
 import { createOrders, getOrders, updateOrders } from '../../api/orderData';
 import showOrders from '../components/shared/orderCards';
 import showDetails from '../components/shared/orderDetailsCard';
@@ -17,11 +18,8 @@ const formEvents = () => {
         email: document.querySelector('#custemail').value,
         type: document.querySelector('#custtype').value,
         status: 'open',
-        order_total: 0,
-        tip_amount: 0,
         time_stamp: new Date().toLocaleString(),
       };
-      console.warn('btn is clicked ', payload);
       createOrders(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
 
@@ -50,37 +48,43 @@ const formEvents = () => {
 
     // ADD ITEM
 
-    if (e.target.id.includes('add-item')) {
+    if (e.target.id.includes('submit-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
       const payLoad = {
-        item_name: document.querySelector('#item_name').value,
-        price: document.querySelector('#price'),
+        item_name: document.querySelector('#add-item').value,
+        price: Number(document.querySelector('#item-price').value),
+        order_id: document.querySelector('#firebaseKey').value,
       };
-      addItem(payLoad).then(({ name }) => {
+      createItem(payLoad).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
-        editItem(patchPayload).then(() => {
-          addItem().then(showDetails);
+        updateItem(patchPayload);
+      }).then(() => {
+        getOrderDetails(firebaseKey).then((obj) => {
+          showDetails(obj, firebaseKey);
         });
       });
     }
 
-    // EDIT ITEM
-
-    if (e.target.id.includes('edit-item')) {
+    if (e.target.id.includes('update-item')) {
       const [, firebaseKey] = e.target.id.split('--');
-      const payLoad = {
-        item_name: document.querySelector('#item_name').value,
-        price: document.querySelector('#price').value,
+      const payload = {
+        item_name: document.querySelector('#add-item').value,
+        price: Number(document.querySelector('#item-price').value),
         firebaseKey,
       };
-      editItem(payLoad).then(() => {
-        addItem().then(showDetails);
-      });
+      updateItem(payload)
+        .then(() => {
+          const orderId = document.querySelector('#firebaseKey').value;
+          getOrderDetails(orderId).then((items) => {
+            showDetails(items, orderId);
+          });
+        });
     }
 
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payLoad = {
-        type: document.querySelector('#payment').value,
+        payment_method: document.querySelector('#payment').value,
         tip_amount: Number(document.querySelector('#tips').value),
         status: 'closed',
         firebaseKey,

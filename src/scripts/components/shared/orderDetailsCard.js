@@ -15,7 +15,9 @@ const ItemSum = (array, orderId) => {
   const itemsValue = addItemsTotal.reduce((a, b) => a + b.price, 0);
   getSingleOrder(orderId).then((order) => {
     const orderTotalAmt = itemsValue + order.tip_amount;
-    document.querySelector('#showTotal').innerHTML = `<h1 id="showTotal">Total $${orderTotalAmt} </h1>`;
+    document.querySelector('#showTotal').innerHTML = `<div>
+    <h1>Total $${orderTotalAmt} </h1>
+   <p class="closedTotals">Items: $${itemsValue} Tips: $${order.tip_amount}</p>`;
   });
 };
 
@@ -53,7 +55,7 @@ const showDetails = (array, orderId) => {
       let domCard = `
         <h1 id="welcome-title"> Order's Items </h1>
         <div id="text-style" class="items-add-btn" >
-       <h1 id="showTotal">Total: $${closedTotal} </h1>
+       <div id="showTotal">Total: $${closedTotal} </div>
         </div>`;
       array.forEach((item) => {
         domCard += `

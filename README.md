@@ -1,47 +1,27 @@
 <div style="text-align:center">
 <h1>Hip Hop, Pizza, and Wangs (HHP+W)</h1>
-
 <image src="./instructions/hhpw-record.png" style="height:300px;"></image></div>
 
-## Get Started
-**READ ALL INSTRUCTIONS BEFORE BEGINNING THIS PROJECT.** Take notes as you read.
+Hip-Hop Pizza and Wangs is a website made for a locally-owned pizza and wings restaurant. It is built to be the server’s point-of-sale system used to enter and keep track of sales, orders, and revenue. 
 
-Everything that needs to be done before coding starts.
+[Click here to see the deployed project](https://mestany-hip-hop-pizza.netlify.app/)
 
-* **ERD** - Create an ERD to show the relationships between all of  your data
-* **Postman Collection** - Create a postman collection to store and test out all of your API calls.
-* **[Wireframes](https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?node-id=0%3A1)** - This is the basic MVP wireframe. You can choose to style how you wish. (View the [click through prototype](https://www.figma.com/proto/4y3EZddALuBR3ouSEM57Np/MVP?scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A2) if you want to see the flow)
-* **Flowchart** - Plan out the flow of your data through the application
-* **Github Issue Tickets** - Using the Project Instructions as a guide, create issue tickets for this project’s work.
-* **Github Milestones** - Separate those issue tickets into Milestones to plan out the work.
-* **Github Project Board** - Create a project board, add all of your issue tickets, and order them by priority.
+## Ideal User
+* The ideal user for this application is a server or owner at Hip-Hop Pizza and Wangs
+* They need to keep track of things like how their orders come in (by phone or walk-in) and how much they’re earning in revenue and tips.
+* This solves the problem of having to manually track these metrics. It allows servers to focus on enthusiastically serving guests instead of focusing on writing down, keeping track of and organizing orders. 
 
-## Definition of Done
 
-Do not submit this project until all of the following are complete:
+## Features
+* **Google Authentication:** User authentication through Firebase so that each user can be tracked in the system
+* When a new order is added, it is added into our database and displayed on the DOM on our View Orders page.
+* **Adding items**: Once an order is added, the user can go into the order to add items. In the add items screen, the user can add the item and the item total.
+* **View Revenue**: This page adds up the total cost of all orders in the database and displays the total. It also displays the total amount of all tips added to orders, the number of called in vs walk-in orders, and the number of cash vs card payments.
+* **Editing Items and Orders**: On already created items or orders, the user can use the edit button to go back and change any information that was originally added.
 
-1. All items are completed in getting started
-1. MVP, defined by the Acceptance Criteria, has been completed
-1. The title of your application is visible in the browser tab
-1. The project has been deployed
-1. Loom video has been created
-1. `README.md` has been updated
-
-## Requirements
-
-Things to remember while coding out the project
-
-* Clean code - single responsibility principle
-* ES6 Modules bundled with webpack
-* No errors - linters should be clean
-* Bootstrap 5 for styling
-* Completely planned out - before each section you should be making new cards on your Github project board before you code
-* Wireframes are provided for you for MVP
-* You should have an ERD
-
-### Instructions
-
-* [MVP Definition - It Gets the Job Done](./instructions/mvp.md)
-* [Stretch Goals 1 - Filtering the Data](./instructions/stretch-1.md)
-* [Stretch Goals 2 - Dealing with Change](./instructions/stretch-2.md)
-* [Stretch Goals 3 - Play that Funky Music](./instructions/stretch-3.md)
+## Contributors
+* [Michael](https://github.com/Mestany2)
+* [Madds](https://github.com/maddihalee)
+* [Sean](https://github.com/Snc1730)
+* [Sheryl](https://github.com/reneesb)
+* [Tori](https://github.com/toripatricia)
